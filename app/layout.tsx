@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/app/_components/Header/Header";
-import Provider from "@/app/_components/ThemeProvider/ThemeProvider";
+import Header from "@/app/_components/Header";
+import { ThemeProvider } from 'next-themes'
 import "@/app/_styles/globals.css";
 import "@/app/_styles/reset.css";
 
@@ -18,12 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Provider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
+        <ThemeProvider attribute="class">
           <Header />
           {children}
-        </Provider>
+        </ThemeProvider>
       </body>
     </html>
   );
