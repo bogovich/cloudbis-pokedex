@@ -21,10 +21,10 @@ const Header = async () => {
 
   return (
     <header className="text-gray-600 body-font border-b-2 dark:bg-gray-700">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <Link href="/" className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <div className="flex justify-between md:flex-row items-center py-3 lg:mx-12 md:mx-8 sm:mx-6 mx-4">
+        <Link href="/" className="flex title-font font-medium items-center text-gray-900 mb-0">
           <Image src="/Pokedex.svg" alt="Pokedex" width={35} height={35} />
-          <span className="ml-3 text-xl dark:text-slate-300">Pokedex</span>
+          <span className="ml-3 text-xl dark:text-slate-300">Pokédex</span>
         </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           {session && <SignOut />}

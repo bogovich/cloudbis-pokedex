@@ -1,4 +1,4 @@
-# Pokedex App
+# Pokédex App
 
 ## Getting Started
 

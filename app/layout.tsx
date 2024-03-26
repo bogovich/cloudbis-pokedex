@@ -8,7 +8,7 @@ import "@/app/_styles/reset.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Cloudbis Pokedex",
+  title: "Cloudbis Pokédex",
   description: "Interview project for Cloudbis",
 };
 
@@ -21,8 +21,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider attribute="class">
-          <Header />
-          {children}
+          <div className="flex flex-col h-screen">
+            <Header />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
