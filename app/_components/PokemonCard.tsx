@@ -23,7 +23,6 @@ const FadeInWhenVisible = ({ children }: { children: React.ReactNode }) => {
 const PokemonCard = ({ pokemon }: IPokemonCardProps) => {
     const { id, name, image } = pokemon;
     const router = useRouter();
-    console.log('rerender - pkmn card');
 
     return (
         <FadeInWhenVisible>
