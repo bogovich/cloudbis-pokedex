@@ -42,6 +42,7 @@ export const SearchBar = ({ onSearch }: { onSearch: (value: string) => void }) =
             placeholder="Search Pokemons"
             required
             value={searchTerm}
+            autoComplete="off"
             onChange={handleChange}
           />
         </div>

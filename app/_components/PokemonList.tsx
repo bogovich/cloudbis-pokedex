@@ -2,7 +2,6 @@
 import { SearchBar } from "@/app/_components/SearchBar";
 import { IPokemonListProps } from "@/app/types";
 import { useState } from "react";
-import AutoSizer from "react-virtualized-auto-sizer";
 import "./PokemonList.css";
 import { useDebounce } from "@/app/hooks/useDebounce";
 import { useFilteredPokemons } from "@/app/hooks/useFilteredPokemons";
@@ -21,29 +20,20 @@ const PokemonList = ({ pokemons }: IPokemonListProps) => {
     const rowHeight = 174;
 
     return (
-        <div className="flex flex-col gap-4 size-full">
-            <div>
+        <div className="flex flex-col size-full">
+            <div className="shadow-md z-100">
                 <h1 className="text-3xl font-bold text-center">Pokemon List</h1>
                 <SearchBar onSearch={handleSearch} />
             </div>
             <div className="size-full">
-                <AutoSizer>
-                    {({ height, width }) => {
-                        const columnCount = Math.floor(width / columnWidth);
-                        const rowCount = Math.ceil(filteredPokemons.length / columnCount);
-                        return (
-                            <PokemonGrid
-                                columnCount={columnCount}
-                                columnWidth={columnWidth}
-                                height={height}
-                                rowCount={rowCount}
-                                rowHeight={rowHeight}
-                                width={width}
-                                pokemons={filteredPokemons}
-                            />
-                        );
-                    }}
-                </AutoSizer>
+                <PokemonGrid
+                    columnWidth={columnWidth}
+                    height={window.innerHeight - 100}
+                    rowCount={Math.ceil(filteredPokemons.length / 4)}
+                    rowHeight={rowHeight}
+                    width={window.innerWidth}
+                    pokemons={filteredPokemons}
+                />
             </div>
         </div>
     );
