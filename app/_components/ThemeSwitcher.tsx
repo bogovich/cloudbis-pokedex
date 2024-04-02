@@ -18,7 +18,7 @@ const ThemeSwitcher = () => {
     if (!mounted) {
         return (
             <motion.div key="sun" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75 }}>
-                <SunIcon className="w-6 h-6 text-yellow-500 " role="button" onClick={() => setTheme('light')} />
+                <SunIcon className="w-6 h-6 text-yellow-500 " role="button" onClick={() => setTheme('light')} tabIndex={0}/>
             </motion.div>
         );
     }
@@ -29,11 +29,11 @@ const ThemeSwitcher = () => {
             {
                 currentTheme === "dark" ? (
                     <motion.div key="sun" initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75 }}>
-                        <SunIcon className="w-6 h-6 text-yellow-500 " role="button" onClick={() => setTheme('light')} />
+                        <SunIcon className="w-6 h-6 text-yellow-500 " role="button" onClick={() => setTheme('light')} tabIndex={0}/>
                     </motion.div>
                 ) : (
                     <motion.div key="moon" initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75 }}>
-                        <MoonIcon className="w-6 h-6 text-gray-900 " role="button" onClick={() => setTheme('dark')} />
+                        <MoonIcon className="w-6 h-6 text-gray-900 " role="button" onClick={() => setTheme('dark')} tabIndex={0}/>
                     </motion.div>
                 )
             }
