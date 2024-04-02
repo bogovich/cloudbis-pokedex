@@ -94,7 +94,7 @@ export const transformDetails = (data: any) => {
     const { id, height, weight, abilities, types, stats } = data;
     const name = data.species.name.charAt(0).toUpperCase() + data.name.slice(1);
     const paddedId = padId(id);
-    const image = `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/imagesHQ/${paddedId}.png`;
+    const image = `https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${paddedId}.png`;
     const normalizedHeight = height / 10;
     const normalizedWeight = weight / 10;
     const mappedAbilities = abilities.map((ability: any) => {
