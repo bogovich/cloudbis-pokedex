@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
@@ -10,36 +10,33 @@ import { motion } from 'framer-motion';
 const ThemeSwitcher = () => {
     const [mounted, setMounted] = useState(false);
     const { systemTheme, theme, setTheme } = useTheme();
-
+    const currentTheme = theme === "system" ? systemTheme : theme;
     useEffect(() => {
         setMounted(true);
     }, []);
 
     if (!mounted) {
-        return null;
+        return (
+            <motion.div key="sun" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75 }}>
+                <SunIcon className="w-6 h-6 text-yellow-500 " role="button" onClick={() => setTheme('light')} />
+            </motion.div>
+        );
     }
 
-    const renderThemeChanger = () => {
-        const currentTheme = theme === "system" ? systemTheme : theme;
-
-        if (currentTheme === "dark") {
-            return (
-                <motion.div key="sun" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75 }}>
-                    <SunIcon className="w-6 h-6 text-yellow-500 " role="button" onClick={() => setTheme('light')} />
-                </motion.div>
-            )
-        } else {
-            return (
-                <motion.div key="moon" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75 }}>
-                    <MoonIcon className="w-6 h-6 text-gray-900 " role="button" onClick={() => setTheme('dark')} />
-                </motion.div>
-            )
-        }
-    };
 
     return (
         <>
-            {renderThemeChanger()}
+            {
+                currentTheme === "dark" ? (
+                    <motion.div key="sun" initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75 }}>
+                        <SunIcon className="w-6 h-6 text-yellow-500 " role="button" onClick={() => setTheme('light')} />
+                    </motion.div>
+                ) : (
+                    <motion.div key="moon" initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75 }}>
+                        <MoonIcon className="w-6 h-6 text-gray-900 " role="button" onClick={() => setTheme('dark')} />
+                    </motion.div>
+                )
+            }
         </>
     );
 };
