@@ -34,7 +34,7 @@ const PokemonDetailsView = async ({ params }: { params: { id: string } }) => {
                                     {pokemon.abilities.map((ability, index) => (
                                         <span
                                             key={index}
-                                            className="bg-gray-300 dark:bg-indigo-400 text-sm font-medium me-2 px-3 py-1 rounded"
+                                            className="bg-gray-300 dark:text-slate-800 dark:bg-indigo-400 text-sm font-medium me-2 px-3 py-1 rounded"
                                         >
                                             {ability}
                                         </span>
@@ -47,7 +47,7 @@ const PokemonDetailsView = async ({ params }: { params: { id: string } }) => {
                                     {pokemon.types.map((type, index) => (
                                         <span
                                             key={index}
-                                            className={`bg-${type}-100 text-sm font-medium me-2 px-3 py-1 rounded`}
+                                            className={`bg-${type}-100 dark:text-slate-800 text-sm font-medium me-2 px-3 py-1 rounded`}
                                         >
                                             {type.toUpperCase()}
                                         </span>
