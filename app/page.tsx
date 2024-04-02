@@ -33,8 +33,8 @@ export default async function Home() {
             </p>
 
             {user ? (
-              <div className="flex flex-wrap justify-center">
-                <BrowsePokemonButton />
+              <div className="flex flex-wrap justify-center gap-4">
+                <BrowsePokemonButton size="large"/>
                 <RandomPokemonButton />
 
               </div>

@@ -10,14 +10,14 @@ export const SearchBar = ({ onSearch }: { onSearch: (value: string) => void }) =
     };
 
     return (
-      <div className="max-w-md mx-auto my-2">
+      <div className="w-4/5 max-w-96 sm:w-full sm:max-w-md mx-auto my-2">
         <label
           htmlFor="default-search"
           className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
         >
           Search
         </label>
-        <div className="relative">
+        <div className="relative max-w-full">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
               className="w-4 h-4 text-gray-500 dark:text-gray-400"
