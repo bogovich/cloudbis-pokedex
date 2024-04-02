@@ -1,3 +1,4 @@
 .mygrid > div:first-child {
     position: relative;
+    margin: 25px 0;
 }
