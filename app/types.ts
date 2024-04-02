@@ -10,7 +10,7 @@ export interface IPokemonTransformed {
 }
 
 export interface IPokemonDetails {
-    id: number;
+    id: string;
     height: number;
     weight: number;
     name: string;
@@ -18,7 +18,10 @@ export interface IPokemonDetails {
     abilities: string[];
     types: string[];
     stats: {
-        [key: string]: number;
+        [key: string]: {
+            base_stat: number;
+            normalized_perc: number;
+        };
     };
 }
 
