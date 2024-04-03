@@ -4,6 +4,37 @@ import PokemonStats from "@/app/_components/PokemonStats";
 import PokemonImage from "@/app/_components/PokemonImage";
 import { notFound } from 'next/navigation';
 
+const PokemonTypes = ({ types }: { types: string[] }) => (
+    <div className="text-base mb-2 dark:text-slate-300 flex">
+    <span className="w-24 inline-block font-medium shrink-0">Types:</span>{" "}
+    <div className="flex flex-wrap gap-1">
+        {types.map((type) => (
+            <span
+                key={type}
+                className={`bg-${type}-100 dark:text-slate-800 text-sm font-medium me-2 px-3 py-1 rounded`}
+            >
+                {type.toUpperCase()}
+            </span>
+        ))}
+    </div>
+</div>
+);
+
+const PokemonAbilities = ({ abilities }: { abilities: string[] }) => (
+    <div className="text-base mb-2 dark:text-slate-300 flex">
+    <span className="w-24 inline-block font-medium shrink-0">Abilities:</span>{" "}
+    <div className="flex flex-wrap gap-1">
+        {abilities.map((ability) => (
+            <span
+                key={ability}
+                className="bg-gray-300 dark:text-slate-800 dark:bg-indigo-400 text-sm font-medium me-2 px-3 py-1 rounded"
+            >
+                {ability}
+            </span>
+        ))}
+    </div>
+</div>
+);
 
 const PokemonDetailsView = async ({ params }: { params: { id: string } }) => {
     const pokemon: IPokemonDetails = await fetchAndTransformPokemonDetails(
@@ -28,32 +59,8 @@ const PokemonDetailsView = async ({ params }: { params: { id: string } }) => {
                         <div className="w-full">
                             <p className="text-base mb-2 dark:text-slate-300"><span className="w-24 inline-block font-medium">Height:</span>{pokemon.height}m</p>
                             <p className="text-base mb-2 dark:text-slate-300"><span className="w-24 inline-block font-medium">Weight:</span>{pokemon.weight}kg</p>
-                            <div className="text-base mb-2 dark:text-slate-300 flex">
-                                <span className="w-24 inline-block font-medium shrink-0">Abilities:</span>{" "}
-                                <div className="flex flex-wrap gap-1">
-                                    {pokemon.abilities.map((ability, index) => (
-                                        <span
-                                            key={index}
-                                            className="bg-gray-300 dark:text-slate-800 dark:bg-indigo-400 text-sm font-medium me-2 px-3 py-1 rounded"
-                                        >
-                                            {ability}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="text-base mb-2 dark:text-slate-300 flex">
-                                <span className="w-24 inline-block font-medium shrink-0">Types:</span>{" "}
-                                <div className="flex flex-wrap gap-1">
-                                    {pokemon.types.map((type, index) => (
-                                        <span
-                                            key={index}
-                                            className={`bg-${type}-100 dark:text-slate-800 text-sm font-medium me-2 px-3 py-1 rounded`}
-                                        >
-                                            {type.toUpperCase()}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
+                            <PokemonAbilities abilities={pokemon.abilities} />
+                            <PokemonTypes types={pokemon.types} />
                             <PokemonStats stats={pokemon.stats} mainType={mainType} />
                         </div>
                     </div>
