@@ -6,7 +6,7 @@ export default function NotFound() {
     return (
         <main className="flex flex-grow flex-col items-center gap-4 lg:p-12 md:p-8 sm:p-6 p-4">
             <h1 className="text-2xl font-bold">404 - Page not found</h1>
-            <Image src="/poke-not-found.webp" alt="Pokemon not found" width={600} height={600} className='rounded'/>
+            <Image src="/poke-not-found.webp" alt="Pokemon not found" width={600} height={600} priority className='rounded'/>
             <p className="text-lg text-gray-600 dark:text-gray-300">Could not find requested page.</p>
             <p className="text-lg text-gray-600 dark:text-gray-300">Please return to homepage or browse all Pokémon.</p>
             <div className='flex items-center justify-center'>
