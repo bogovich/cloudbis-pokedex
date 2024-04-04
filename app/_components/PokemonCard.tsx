@@ -36,7 +36,7 @@ const PokemonCard = ({ pokemon }: IPokemonCardProps) => {
                 className="flex flex-col bg-slate-100 w-32 sm:w-40 items-center justify-center p-2 border border-slate-600 dark:bg-slate-500">
                 <h2 className="text-base font-bold dark:text-stone-100">{name}</h2>
                 <span className="text-sm text-stone-600 dark:text-amber-300">#{id}</span>
-                <Image width="156" height="156" src={image} alt={name} className="w-20 h-20 sm:w-28 sm:h-28" placeholder='empty' />
+                <Image width="156" height="156" src={image} alt={name} className="w-20 h-20 sm:w-28 sm:h-28" placeholder='empty' unoptimized />
             </div>
         </FadeInWhenVisible>
     );
